@@ -1,4 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { resolve } from './resolve';
 
 /** 数据库连接方式 */
 export const ORM_CONFIG: TypeOrmModuleOptions = {
@@ -8,6 +9,6 @@ export const ORM_CONFIG: TypeOrmModuleOptions = {
     username: 'root',
     password: 'root',
     database: 'test',
-    entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    entities: [resolve('../', '/**/*.entity{.ts,.js}') ],
     synchronize: true,
 };

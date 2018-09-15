@@ -35,6 +35,7 @@
         ],
         "no-empty-interface": false,
         "no-empty": false,
+        "no-console":false,
         "arrow-parens": false,
         "object-literal-sort-keys": false,
         "no-unused-expression": false,

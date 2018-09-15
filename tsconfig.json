@@ -8,13 +8,21 @@
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "lib": [
+      "es7"
+    ],
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./src"
   },
   "include": [
-    "src/**/*", "config/config.ts", "config/ormconfig.default.ts", "config/config.dev.ts", "config/config.default.ts"
+    "src/**/*",
+     "config/config.ts", 
+     "config/ormconfig.default.ts", 
+     "config/config.dev.ts", 
+     "config/config.default.ts", 
+     "config/resolve.ts"
   ],
   "exclude": [
     "node_modules",
