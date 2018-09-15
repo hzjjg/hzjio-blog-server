@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { IsDate, Length } from 'class-validator';
 
 @Entity()
 export class Article{
@@ -22,15 +21,15 @@ export class Article{
 
     /** 投票 */
     @Column()
-    votes: number;
+    votes: number = 0;
 
     /** 查看次数 */
     @Column()
-    views: number;
+    views: number = 0;
 
     @Column()
-    createTime: number;
+    createTime: number = 0;
 
     @Column()
-    lastModifyTime: number;
+    lastModifyTime: number = 0;
 }

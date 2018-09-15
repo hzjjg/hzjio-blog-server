@@ -20,7 +20,6 @@ export class ArticleController {
 
     @Post()
     async create(@Req() request, @Body() createArticleDto: CreateArticleDto){
-        console.log(createArticleDto, request);
         const result =  this.articleService.create(createArticleDto);
         return result;
     }

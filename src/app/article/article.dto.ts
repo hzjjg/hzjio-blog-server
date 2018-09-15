@@ -1,7 +1,6 @@
 import { IsString, Length } from 'class-validator';
 
 export class CreateArticleDto {
-    @IsString()
     @Length(3, 30)
     readonly title: string;
 
@@ -10,7 +9,7 @@ export class CreateArticleDto {
     readonly summary?: string;
 
     @IsString()
-    readonly conent?: string;
+    readonly content?: string;
   }
 
 export class UpdateArticleDto{
@@ -23,5 +22,5 @@ export class UpdateArticleDto{
     readonly summary?: string;
 
     @IsString()
-    readonly conent?: string;
+    readonly content?: string;
 }

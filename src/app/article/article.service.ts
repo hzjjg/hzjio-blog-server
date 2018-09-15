@@ -21,7 +21,8 @@ export class ArticleService {
     }
 
     async create(article: CreateArticleDto){
-        const articleEnity =  this.articleRepository.create(article);
+        const author = 1;
+        const articleEnity =  this.articleRepository.create({...article, author});
         const error = await validate(articleEnity);
 
         if (error.length > 0){
