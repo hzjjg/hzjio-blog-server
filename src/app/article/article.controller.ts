@@ -19,7 +19,7 @@ export class ArticleController {
     }
 
     @Post()
-    async create(@Req() request, @Body() createArticleDto: CreateArticleDto){
+    async create(@Body() createArticleDto: CreateArticleDto){
         const result =  this.articleService.create(createArticleDto);
         return result;
     }

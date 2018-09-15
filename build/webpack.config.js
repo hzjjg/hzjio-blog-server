@@ -29,7 +29,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
-    path: resolve.resolve('../','dist'),
+    path: resolve.resolve('./dist'),
     filename: 'server.js',
   },
 };
