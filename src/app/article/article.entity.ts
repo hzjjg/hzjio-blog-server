@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate, ManyToOne, JoinTable, JoinColumn } from 'typeorm';
+import { User } from '../user/user.entity';
 
 @Entity()
 export class Article{
@@ -27,9 +28,26 @@ export class Article{
     @Column()
     views: number = 0;
 
-    @Column()
-    createTime: number = 0;
+    @Column({
+        type: 'datetime',
+        nullable: true,
+    })
+    createdDate: Date;
 
-    @Column()
-    lastModifyTime: number = 0;
+    @Column({
+        type: 'datetime',
+        nullable: true,
+    })
+    updatedDate: Date;
+
+    // @BeforeInsert()
+    // beforeCreate() {
+    //     this.createdDate = new Date();
+    //     this.updatedDate = new Date();
+    // }
+
+    // @BeforeUpdate()
+    // beforeUpdate() {
+    //     this.updatedDate = new Date();
+    // }
 }

@@ -9,32 +9,27 @@ export class ArticleController {
 
     @Get()
     async findAll(@Query() query) {
-        const result =  this.articleService.findAll(query);
-        return result;
+        return await this.articleService.findAll(query);
     }
 
     @Get(':id')
     async findOne(@Param('id') id) {
-        const result =  this.articleService.findOne(id);
-        return result;
+        return await this.articleService.findOne(id);
     }
 
     @Post()
     async create(@Body() createArticleDto: CreateArticleDto){
-        const result =  this.articleService.create(createArticleDto);
-        return result;
+        return await this.articleService.create(createArticleDto);
     }
 
     @Put(':id')
     async update(@Param('id') id, @Body() updateArticleDto: UpdateArticleDto){
-        const result =  this.articleService.update(id, updateArticleDto);
-        return result;
+        return await this.articleService.update(id, updateArticleDto);
     }
 
     @Delete(':id')
     async remove(@Param('id') id) {
-      const result =  await this.articleService.remove(id);
-      return result;
+      return await this.articleService.remove(id);
     }
 
 }

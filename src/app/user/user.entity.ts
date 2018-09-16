@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate } from 'typeorm';
 
 @Entity()
 export class User {
@@ -7,6 +7,9 @@ export class User {
 
     @Column()
     role: number;
+
+    @Column()
+    status: number;
 
     @Column()
     nickname: string;
@@ -20,13 +23,36 @@ export class User {
     @Column()
     password: string;
 
-    @Column()
-    creatTime: number;
+    @Column({
+        type: 'datetime',
+        nullable: true,
+    })
+    createdDate: Date;
 
-    @Column()
-    lastLoginTime: number;
+    @Column({
+        type: 'datetime',
+        nullable: true,
+    })
+    lastLoginDate: number;
+
+    @Column({
+        type: 'datetime',
+        nullable: true,
+    })
+    updatedDate: Date;
 
     @Column()
     loginCount: number;
+
+    @BeforeInsert()
+    beforeCreate() {
+        this.createdDate = new Date();
+        this.updatedDate = new Date();
+    }
+
+    @BeforeUpdate()
+    beforeUpdate() {
+        this.updatedDate = new Date();
+    }
 
 }

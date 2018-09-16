@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { resolve } from './resolve';
+import { CommonSubscriber } from 'database/common_subscriber';
 
 /** 数据库连接方式 */
 export const ORM_CONFIG: TypeOrmModuleOptions = {
