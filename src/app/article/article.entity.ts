@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate, ManyToOne, JoinTable, JoinColumn } from 'typeorm';
 import { User } from '../user/user.entity';
+import { ArticleStatus } from 'constants/enums';
 
 @Entity()
 export class Article{
@@ -20,6 +21,9 @@ export class Article{
     @Column()
     content: string;
 
+    @Column({ default: ArticleStatus.PUBLISHED })
+    status: ArticleStatus;
+
     /** 投票 */
     @Column()
     votes: number = 0;
@@ -39,15 +43,4 @@ export class Article{
         nullable: true,
     })
     updatedDate: Date;
-
-    // @BeforeInsert()
-    // beforeCreate() {
-    //     this.createdDate = new Date();
-    //     this.updatedDate = new Date();
-    // }
-
-    // @BeforeUpdate()
-    // beforeUpdate() {
-    //     this.updatedDate = new Date();
-    // }
 }

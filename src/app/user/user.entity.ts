@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate } from 'typeorm';
+import { UserStatus } from 'constants/enums';
 
 @Entity()
 export class User {
@@ -8,8 +9,8 @@ export class User {
     @Column()
     role: number;
 
-    @Column()
-    status: number;
+    @Column({ default: UserStatus.AVAILABLE })
+    status: UserStatus;
 
     @Column()
     nickname: string;
@@ -43,16 +44,4 @@ export class User {
 
     @Column()
     loginCount: number;
-
-    @BeforeInsert()
-    beforeCreate() {
-        this.createdDate = new Date();
-        this.updatedDate = new Date();
-    }
-
-    @BeforeUpdate()
-    beforeUpdate() {
-        this.updatedDate = new Date();
-    }
-
 }
