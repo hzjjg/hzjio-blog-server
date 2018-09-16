@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Post, Put, Body, Delete, Query, Req } from '@nestjs/common';
 import { ArticleService } from './article.service';
-import { CreateArticleDto, UpdateArticleDto } from './article.dto';
+import { CreateArticleDto } from './dto/create_article.dto';
+import { UpdateArticleDto } from './dto/update_article.dto';
 
 @Controller('article')
 export class ArticleController {

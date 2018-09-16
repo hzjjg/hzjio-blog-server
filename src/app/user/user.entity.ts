@@ -18,6 +18,9 @@ export class User {
     email: string;
 
     @Column()
+    password: string;
+
+    @Column()
     creatTime: number;
 
     @Column()
