@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate, ManyToOne, JoinTable, JoinColumn } from 'typeorm';
-import { User } from '../user/user.entity';
+// import { User } from '../user/user.entity';
 import { ArticleStatus } from 'constants/enums';
 
 @Entity()
