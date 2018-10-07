@@ -1,14 +1,17 @@
-import { IsString, Length } from 'class-validator';
+import { IsString, Length, IsOptional } from 'class-validator';
 
 export class CreateArticleDto {
 
+    @IsString()
     @Length(3, 30)
     readonly title: string;
 
     @IsString()
     @Length(15, 140)
-    readonly summary?: string;
+    @IsOptional()
+    readonly summary: string;
 
     @IsString()
-    readonly content?: string;
+    @IsOptional()
+    readonly content: string;
   }

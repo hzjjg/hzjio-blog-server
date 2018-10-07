@@ -1,14 +1,17 @@
-import { IsString, Length } from 'class-validator';
+import { IsString, Length, IsOptional } from 'class-validator';
 
 export class UpdateArticleDto{
     @IsString()
     @Length(3, 30)
-    readonly title?: string;
+    @IsOptional()
+    readonly title: string;
 
     @IsString()
     @Length(15, 140)
-    readonly summary?: string;
+    @IsOptional()
+    readonly summary: string;
 
     @IsString()
-    readonly content?: string;
+    @IsOptional()
+    readonly content: string;
 }

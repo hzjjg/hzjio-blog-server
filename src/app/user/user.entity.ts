@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { UserStatus } from 'constants/enums';
 
 @Entity()
@@ -6,23 +6,29 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({type: 'int', default: 0})
     role: number;
 
-    @Column({ default: UserStatus.AVAILABLE })
+    @Column({ type: 'int', default: UserStatus.AVAILABLE })
     status: UserStatus;
 
-    @Column()
+    @Column('varchar')
     nickname: string;
 
-    @Column()
+    @Column('varchar')
     phone: string;
 
-    @Column()
+    @Column('varchar')
     email: string;
 
-    @Column()
+    @Column('varchar')
     password: string;
+
+    @Column({type: 'datetime', nullable: true})
+    lastLoginDate: number;
+
+    @Column({ default: 0 })
+    loginCount: number;
 
     @Column({
         type: 'datetime',
@@ -34,14 +40,5 @@ export class User {
         type: 'datetime',
         nullable: true,
     })
-    lastLoginDate: number;
-
-    @Column({
-        type: 'datetime',
-        nullable: true,
-    })
     updatedDate: Date;
-
-    @Column()
-    loginCount: number;
 }

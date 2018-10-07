@@ -5,13 +5,16 @@ export class CommonSubscriber implements EntitySubscriberInterface {
 
     beforeInsert(event: InsertEvent<any>) {
         const entity = event.entity;
-        entity.createdDate! === undefined && (entity.createdDate = new Date());
-        entity.updatedDate! === undefined && (entity.updatedDate = new Date());
+        entity.createdDate = new Date();
+        entity.updatedDate = new Date();
     }
 
     beforeUpdate(event: UpdateEvent<any>) {
         const entity = event.entity;
-        entity.updatedDate! === undefined && (entity.updatedDate = new Date());
+        console.log(event);
+
+        entity && (entity.updatedDate = new Date());
+
     }
 
 }

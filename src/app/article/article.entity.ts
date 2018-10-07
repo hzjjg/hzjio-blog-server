@@ -1,5 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate, ManyToOne, JoinTable, JoinColumn } from 'typeorm';
-// import { User } from '../user/user.entity';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { ArticleStatus } from 'constants/enums';
 
 @Entity()
@@ -7,10 +6,10 @@ export class Article{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column('int')
     author: number;
 
-    @Column({length: 500})
+    @Column('varchar')
     title: string;
 
     /** 摘要 */
@@ -18,18 +17,18 @@ export class Article{
     summary: string;
 
     /** 内容 */
-    @Column()
+    @Column('text')
     content: string;
 
     @Column({ default: ArticleStatus.PUBLISHED })
     status: ArticleStatus;
 
     /** 投票 */
-    @Column()
+    @Column('int')
     votes: number = 0;
 
     /** 查看次数 */
-    @Column()
+    @Column('int')
     views: number = 0;
 
     @Column({

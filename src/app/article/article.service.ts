@@ -20,14 +20,14 @@ export class ArticleService {
         return await this.articleRepository.findOne(id);
     }
 
-    async create(article: CreateArticleDto){
+    async create(createArticleDto: CreateArticleDto){
         const author = 1;
-        const createdCat =  this.articleRepository.create({...article, author});
-        return await this.articleRepository.save(createdCat);
+        const createdArticle =  this.articleRepository.create({...createArticleDto, author});
+        return await this.articleRepository.save(createdArticle);
     }
 
-    async update(id: number, article: UpdateArticleDto){
-        return await this.articleRepository.update(id, article);
+    async update(id: number, updateArticleDto: UpdateArticleDto){
+        return await this.articleRepository.update(id, updateArticleDto);
     }
 
     async remove(id: number){
