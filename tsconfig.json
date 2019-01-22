@@ -9,23 +9,15 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
-      "es7"
+      "es7",
+      "dom"
     ],
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./",
   },
-  "include": [
-    "src/**/*",
-     "config/config.ts", 
-     "config/ormconfig.default.ts", 
-     "config/config.dev.ts", 
-     "config/config.default.ts", 
-     "config/resolve.ts"
-  ],
   "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
+    "node_modules"
   ]
 }

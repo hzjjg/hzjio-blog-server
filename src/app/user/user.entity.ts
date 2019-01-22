@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { UserStatus } from 'constants/enums';
+import { UserStatus } from '../../constants/enums';
 
 @Entity()
 export class User {

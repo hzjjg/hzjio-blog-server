@@ -3,11 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ORM_CONFIG } from '../../config/config';
-import { CommonSubscriber } from 'database/common_subscriber';
 
 import { ArticleModule } from './article/article.module';
 import { UserModule } from './user/user.module';
 import { resolve } from '../utils/resolve';
+import { CommonSubscriber } from '../database/common_subscriber';
 
 @Module({
   imports: [
