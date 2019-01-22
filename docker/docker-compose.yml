@@ -1,0 +1,29 @@
+version: '3.7'
+
+services: 
+
+  database:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: hzjio_blog_dev
+      MYSQL_ROOT_PASSWORD: Hzjjg931112.
+    container_name: blog_database
+    volumes: 
+      - /www/db/hzjio_blog:/var/lib/mysql
+
+
+  server:
+    ports:
+      - 3000:3000
+    build: 
+      context: ../
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    links:  
+      - database
+    container_name: blog_server
