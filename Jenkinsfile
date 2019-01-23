@@ -24,20 +24,20 @@ pipeline {
 
     post {        
         always {            
-            echo 'One way or another, I have finished'            
+            echo '部署流程结束'            
             // deleteDir() /* clean up our workspace */        
         }        
         success {            
-            echo 'I succeeeded!'        
+            echo '成功!'        
         }        
         unstable {            
             echo 'I am unstable :/'        
         }        
         failure {            
-            echo 'I failed :('        
+            echo '恭喜你，部署失败'        
         }        
         changed {            
-            echo 'Things were different before...'        
+            echo '接下来宣布结果……'        
         }    
     }
 }
