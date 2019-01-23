@@ -19,14 +19,14 @@ services:
     build:
       context: ../
       dockerfile: nginx.Dockerfile
-    ports:
-      - 80:80
     container_name: blog_nginx
     restart: unless-stopped
+    network_mode: "host"
+    
 
   server:
     ports:
-      - 3000
+      - 3000:3000
     restart: always
     build: 
       context: ../
