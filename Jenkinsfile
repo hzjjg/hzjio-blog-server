@@ -4,9 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd ./docker'
-                sh 'docker-compose  build'             
-                echo 'Building' 
+                dir('docker'){
+                    sh 'docker-compose build'             
+                }
+                echo '构建容器中……' 
             }
         }
         stage('Deploy') {
@@ -16,8 +17,10 @@ pipeline {
               }
             }
             steps {
-                sh 'docker-compose up -d'
-                echo './deploy staging'                
+                dir('docker'){
+                    sh 'docker-compose up -d'
+                }
+                echo '启动容器中……'                
             }
         }
     }
