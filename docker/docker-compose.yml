@@ -16,14 +16,13 @@ services:
       - /www/db/hzjio_blog_dev:/var/lib/mysql
 
   nginx:
-    image: nginx
+    build:
+      context: ../
+      dockerfile: nginx.Dockerfile
     ports:
       - 80:80
     container_name: blog_nginx
     restart: unless-stopped
-    volumes: 
-      - dist:/usr/share/nginx/html:ro
-      - ./nginx.conf:/etc/nginx/conf.d/deafult.conf
 
   server:
     ports:
@@ -36,6 +35,3 @@ services:
     links:  
       - database
     container_name: blog_server
-
-volumes:
-  dist:
