@@ -1,14 +1,11 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { resolve } from './resolve';
 
-/** 数据库连接方式 */
+// 数据库连接方式
 export const ORM_CONFIG: TypeOrmModuleOptions = {
     type: 'mysql',
-    host: 'localhost',
+    host: 'database',
     port: 3306,
     username: 'root',
-    password: 'root',
-    database: 'test',
-    entities: [resolve('/**/*.entity{.ts,.js}') ],
-    synchronize: true,
+    password: '123',
+    database: 'hzjio_blog_dev',
 };
