@@ -10,6 +10,8 @@ pipeline {
                 echo '构建容器中……' 
             }
         }
+    }
+
     post {        
         always {            
             echo '部署流程结束'            
