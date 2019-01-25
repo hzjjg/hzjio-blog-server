@@ -10,20 +10,6 @@ pipeline {
                 echo '构建容器中……' 
             }
         }
-        
-        stage('Clean') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
-            }
-            steps {
-                sh 'docker system prune -f'
-                echo '打扫垃圾……'                
-            }
-        }
-    }
-
     post {        
         always {            
             echo '部署流程结束'            
