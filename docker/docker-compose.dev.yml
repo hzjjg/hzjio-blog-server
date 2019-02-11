@@ -15,11 +15,11 @@ services:
     volumes: 
       - /www/db/hzjio_blog_dev:/var/lib/mysql
 
-  nginx:
-    build:
-      context: ../
-      dockerfile: nginx.Dockerfile
-    ports:
-      - 80:80
-    container_name: blog_nginx
-    restart: unless-stopped
+  # nginx:
+  #   build:
+  #     context: ../
+  #     dockerfile: nginx.Dockerfile
+  #   ports:
+  #     - 80:80
+  #   container_name: blog_nginx
+  #   restart: unless-stopped

@@ -1,22 +1,21 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import ORM_CONFIG from '../../config/config';
+import { CommonSubscriber } from '../database/common_subscriber';
+import { resolve } from '../utils/resolve';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ORM_CONFIG } from '../../config/config.default';
-
 import { ArticleModule } from './article/article.module';
 import { UserModule } from './user/user.module';
-import { resolve } from '../utils/resolve';
-import { CommonSubscriber } from '../database/common_subscriber';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       ...ORM_CONFIG,
-       subscribers: [CommonSubscriber],
-       entities: [resolve('./**/*.entity{.ts,.js}') ],
-       synchronize: true,
-      }),
+      subscribers: [CommonSubscriber],
+      entities: [resolve('./**/*.entity{.ts,.js}')],
+      synchronize: true,
+    }),
     ArticleModule,
     UserModule,
   ],
@@ -25,4 +24,4 @@ import { CommonSubscriber } from '../database/common_subscriber';
     AppService,
   ],
 })
-export class AppModule {}
+export class AppModule { }

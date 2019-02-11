@@ -1,4 +1,2 @@
 node_modules/
-# 数据库连接方式
-/config/config.ts
 dist/
